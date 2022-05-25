@@ -1,0 +1,41 @@
+{
+  "name": "boiconv",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "generate": "nuxt generate",
+    "api": "run-s api:*",
+    "api:rm": "if exist dist\\api (rd /s /q dist\\api)",
+    "api:mkdir": "mkdirp dist\\api",
+    "api:cp": "cpx -C api/**/!(test).!(json) dist/api",
+    "api:cp2": "cpx -C .htaccess dist",
+    "api:cp3": "cpx -C apiMarge/debug.php dist/api/common/define/",
+    "api:cp4": "cpx -C apiMarge/tokens.txt dist/api/common/catch/",
+    "api:cp5": "cpx -C apiMarge/.htaccess dist/_nuxt/",
+    "api:cp6": "cpx -C apiMarge/.htaccess dist/api/"
+  },
+  "dependencies": {
+    "@nuxt/content": "^1.14.0",
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/moment": "^1.6.1",
+    "@nuxtjs/pwa": "^3.3.5",
+    "core-js": "^3.22.5",
+    "download-csv": "^1.1.1",
+    "file-saver": "^2.0.5",
+    "jszip": "^3.10.0",
+    "nuxt": "^2.15.7",
+    "nuxt-clipboard2": "^0.2.1",
+    "vue-papa-parse": "^3.0.5",
+    "vue-sweetalert2": "^5.0.5",
+    "vuedraggable": "^2.24.3",
+    "vuetify": "^2.6.5"
+  },
+  "devDependencies": {
+    "@nuxtjs/vuetify": "^1.12.2",
+    "cpx": "^1.5.0",
+    "npm-run-all": "^4.1.5"
+  }
+}
