@@ -169,6 +169,7 @@ export default {
       //:は除外
       let text = this.text;
       text = text.replace(/:/g, "｜");
+      text = text.replace(/…/g, "．．");
       //半角記号を全角記号に変換
       text = this.halfWidth2FullWidthSymbol(text);
       //絵文字を削除

@@ -86,6 +86,7 @@ export default {
     return {
       query: "",
       updateLogs: [
+        {datetime: "2022-05-25", v: "0.9.2", content: "「…」を削除から「．．」に変換するように変更"},
         {datetime: "2022-05-25", v: "0.9.1", content: "ファイル読み込み機能追加"},
         {datetime: "2022-05-25", v: "0.9.1", content: "各話文字数上限設定機能追加"},
         {datetime: "2022-05-25", v: "0.9.1", content: "各話文字数上限表示（2000）"},
