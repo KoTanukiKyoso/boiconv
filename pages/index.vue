@@ -86,6 +86,7 @@
         </div>
       </template>
     </v-card>
+    <div style="height: 40px; width: 100%;"/>
   </div>
 </template>
 

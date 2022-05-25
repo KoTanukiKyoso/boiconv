@@ -1,3 +1,3 @@
 いらっしゃい
 
-Twitter：@daldashi_voice
+Twitter：@daldalshi_voice

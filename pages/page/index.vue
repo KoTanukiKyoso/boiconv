@@ -66,6 +66,7 @@
           ・結合可能な個所を結合します<br>
         </v-card-text>
       </v-card>
+      <div style="height: 40px; width: 100%;"/>
     </v-col>
   </v-row>
 </template>
