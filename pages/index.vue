@@ -4,6 +4,8 @@
       <v-card-title>BOICONV</v-card-title>
       <v-card-subtitle>NTTソルマーレの提供する「ボイコネ」の"シナリオ"を"小説"へ変換する「非公式」サービスです</v-card-subtitle>
       <v-card-text>
+        ・半角英語を全角英語に変換します<br>
+        ・半角スペースを全角スペースに変換します<br>
         ・半角記号を全角記号に変換します<br>
         ・全角コロン「：」は使用できないので半角コロン「:」は「｜」に変換されます<br>
         ・絵文字を削除します<br>
@@ -170,8 +172,12 @@ export default {
       let text = this.text;
       text = text.replace(/:/g, "｜");
       text = text.replace(/…/g, "．．");
+      //半角スペースを全角スペースに変換
+      text = text.replace(/ /g, "　");
       //半角記号を全角記号に変換
       text = this.halfWidth2FullWidthSymbol(text);
+      //半角英語を全角に変換
+      text = this.zenkaku2Hankaku(text);
       //絵文字を削除
       text = text.replace(/([\u2700-\u27BF]|[\uE000-\uF8FF]|\uD83C[\uDC00-\uDFFF]|\uD83D[\uDC00-\uDFFF]|[\u2011-\u26FF]|\uD83E[\uDD10-\uDDFF])/g, '');
 
@@ -301,9 +307,6 @@ export default {
         } else if (item.text.indexOf("　") >= 0) {
           flg = true;
           res = res.concat(this.separate("　", item));
-        } else if (item.text.indexOf(" ") >= 0) {
-          flg = true;
-          res = res.concat(this.separate(" ", item));
         } else {
           flg = true;
           while ((item.text + item.sep).length > this.maxLength(item.name)) {
@@ -408,6 +411,11 @@ export default {
         return String.fromCharCode(s.charCodeAt(0) + 0xFEE0);
       });
     },
+    zenkaku2Hankaku(str) {
+      return str.replace(/[A-Za-z]/g, function (s) {
+        return String.fromCharCode(s.charCodeAt(0) + 0xFEE0);
+      });
+    }
   },
   watch: {},
   computed: {},
